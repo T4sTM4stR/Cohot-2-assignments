@@ -4,7 +4,16 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const regex = /[a-zA-Z]/gi;
+  if (str.length === 1 || !/^[a-zA-Z]+$/.test(str)) return true;
+  str = str.toUpperCase();
+  let alpha = str.match(regex);
+  if (!alpha) return false;
+
+  const normalizedStr = alpha.join("").toUpperCase();
+  const reversedStr = normalizedStr.split("").reverse().join("");
+
+  return normalizedStr === reversedStr;
 }
 
 module.exports = isPalindrome;

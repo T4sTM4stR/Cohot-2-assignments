@@ -5,6 +5,13 @@
  */
 
 function sleep(milliseconds) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), milliseconds * 100);
+  });
 }
+
+sleep(4)
+  .then(() => console.log(`threads started`))
+  .catch(() => console.log(`error`));
 
 module.exports = sleep;
